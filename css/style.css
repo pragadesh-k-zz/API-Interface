@@ -40,7 +40,7 @@ html {
   color: rgb(19, 45, 59);
 }
 
-.toast {
+#toast {
   position: fixed;
   bottom: 0px;
   left: 10px;
