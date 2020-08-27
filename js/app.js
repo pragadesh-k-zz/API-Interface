@@ -225,7 +225,7 @@ function speechCheck(e) {
     micLogo.style.color = "rgb(252, 82, 82)";
     setTimeout(() => {
       toast.classList.add("show");
-
+      toast.style.display = "inline";
       // speech synthesis
       let synth = window.speechSynthesis;
       let msg = new SpeechSynthesisUtterance(
@@ -235,6 +235,7 @@ function speechCheck(e) {
       synth.speak(msg);
       setTimeout(() => {
         toast.classList.remove("show");
+        toast.style.display = "none";
       }, 2500);
     }, 550);
 

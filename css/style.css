@@ -45,4 +45,5 @@ html {
   bottom: 0px;
   left: 10px;
   z-index: 2;
+  display: none;
 }
