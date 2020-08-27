@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+
+    <!--Fontawesome icons-->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
+
+    <!--Bootswatch Template-->
+    <link rel="stylesheet" href="css/bootstrap.min.css" id="lightmode"/>
+
+    <!--Custom css-->
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!--LOGO-->
+    <link rel="icon" href="image/logo.png" />
+
+    <title>Application Programming Interface</title>
+  </head>
+  <body class="pb-0 mb-0">
+    <!--button top-->
+    <button class="btn btn-success rounded-circle" id="btntop">
+      <span class="fa fa-angle-double-up fa-2x"></span>
+    </button>
+
+    <!--toast hello-->
+    <div class="toast col-6 p-0" id="toast" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header bg-primary">
+        <strong class="mr-auto">Luna</strong>
+        <small>now</small>
+      </div>
+      <div class="toast-body">
+       <em> Hello there , voice command enabled</em>
+      </div>
+    </div>
+
+    <!--navbar-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+      <!--NAV-BRAND-->
+      <a class="navbar-brand" href="#">
+        <span
+          width="30"
+          height="30"
+          class="d-inline-block align-center fa fa-exchange mr-2"
+        ></span>
+        <span class="d-none d-md-inline"
+          >Application Programming Interface</span
+        >
+        <span class="d-none d-md-inline">(</span>
+        API
+        <span class="d-none d-md-inline">)</span>
+      </a>
+      <!--toggler-->
+      <button
+        class="navbar-toggler mt-2"
+        data-toggle="collapse"
+        data-target="#navbar-content"
+      >
+        <span class="fa fa-angle-double-down"></span>
+      </button>
+
+      <!--Navbar collapse content-->
+      <div class="collapse navbar-collapse" id="navbar-content">
+        <ul class="nav-ul navbar-nav ml-auto pt-2">
+          <li class="nav-item nav-logos">
+            <a href="javascript:;" class="nav-link fa fa-globe fa-lg" title="Covid-19">
+              <span class="ml-2 d-inline d-lg-none">Covid-19</span>
+            </a>
+          </li>
+          <li class="nav-item nav-logos">
+            <a href="javascript:;" class="nav-link fa fa-github fa-lg"
+              title="Github"><span class="ml-2 d-inline d-lg-none">Github</span></a
+            >
+          </li>
+          <li class="nav-item nav-logos">
+            <a
+              href="javascript:;"
+              id="mic-logo"
+              class="nav-link fa fa-microphone fa-lg"
+              title="Enable Microphone"><span class="ml-2 d-inline d-lg-none">Microphone</span></a
+            >
+          </li>
+          <li class="nav-item nav-logos">
+            <a
+              href="javascript:;"
+              id="mode-logo"
+              class="nav-link fa fa-moon-o fa-lg"
+              title="Dark mode"
+              ><span class="ml-2 d-inline d-lg-none" id="mode-logol-text">Mode</span></a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+    
+    <!--Main Container-->
+    <div class="col-md-11 mx-md-auto" id="main-container">
+      <!--INTRODUCTION-->
+      <div id="api-intro" class="p-4">
+        <h3 class="text-info">What is an API?</h3>
+        <p class="text text-primary">
+          API is the acronym for Application Programming Interface, which is a
+          software intermediary that allows two applications to talk to each
+          other. Each time you use an app like Facebook, send an instant
+          message, or check the weather on your phone, you’re using an API.
+        </p>
+
+        <hr />
+
+        <h3 class="text-info">What is an Example of an API?</h3>
+        <p class="text text-primary">
+          When you use an application on your mobile phone, the application
+          connects to the Internet and sends data to a server. The server then
+          retrieves that data, interprets it, performs the necessary actions and
+          sends it back to your phone. The application then interprets that data
+          and presents you with the information you wanted in a readable way.
+          This is what an API is - all of this happens via API.
+        </p>
+        <img
+          src="image/apiimage.png"
+          alt="API Flowchart"
+          class="rounded mx-auto d-block my-5 img-fluid"
+        />
+        <hr />
+      </div>
+
+      <!--COVID-19 TRACKER-->
+      <div class="col-12 my-5" id="covid-tracker">
+        <p class="display-4 text-center mb-5">
+          <span class="fa fa-globe fa-md mr-2"></span>COVID-19 TRACKER
+        </p>
+        <!--HEADING-->
+        <div class="col-12 d-flex mb-2 p-0 text-primary" id="covid-heading">
+          <div id="names">
+            <h3 id="display-district" style="display: inline">District</h3>
+            ,
+            <small class="text-muted" id="display-state">State</small>
+          </div>
+          <div class="col d-flex">
+            <span
+              id="info"
+              tabindex="0"
+              class="fa fa-info-circle fa-lg text-info p-3 ml-auto"
+              data-toggle="popover"
+              data-trigger="focus"
+              title="Covid-19"
+              data-content="STATS for covid-19 in State and District wise."
+            ></span>
+          </div>
+        </div>
+
+        <!--Tracked Details of Corona-->
+        <div class="row mb-4" style="box-shadow: 0px 0px 2px 2px gray">
+          <div class="col-sm-6 covid p-3" id="active">
+            <span class="fa fa-clock-o text-warning fa-lg"></span>
+            <span class="ml-1">Active</span>
+            <span class="float-right"
+              ><strong class="active count">0</strong></span
+            >
+          </div>
+          <div class="col-sm-6 covid p-3" id="confirmed">
+            <span class="fa fa-check-square text-info fa-lg"></span>
+            <span class="ml-1">Confirmed</span>
+            <span class="float-right"
+              ><strong class="confirmed count">0</strong></span
+            >
+          </div>
+          <div class="col-sm-6 covid p-3" id="deceased">
+            <span class="fa fa-times-circle text-danger fa-lg"></span>
+            <span class="ml-1">Deceased</span>
+            <span class="float-right"
+              ><strong class="deceased count">0</strong></span
+            >
+          </div>
+          <div class="col-sm-6 covid p-3" id="recovered">
+            <span class="fa fa-thumbs-up text-success fa-lg"></span>
+            <span class="ml-1">Recovered</span>
+            <span class="float-right"
+              ><strong class="recovered count">0</strong></span
+            >
+          </div>
+        </div>
+        <!--DATA VIZZ-->
+        <canvas id="myChart"></canvas>
+
+        <button
+          type="button"
+          class="btn btn-info d-block btn-lg mx-auto mt-3"
+          data-toggle="modal"
+          data-target="#change-location-modal"
+          id="change-loc"
+        >
+          Change Location
+        </button>
+
+        <!--CHANGE LOCATION MODAL-->
+        <div class="modal fade" id="change-location-modal">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title">Change Location</h4>
+                <button
+                  class="btn btn-danger"
+                  data-dismiss="modal"
+                  aria-label="close"
+                >
+                  <span aria-hidden="true">&times</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form>
+                  <div class="form-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      required
+                      placeholder="State name..."
+                      id="state-name"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      required
+                      placeholder="District name..."
+                      id="district-name"
+                    />
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  data-dismiss="modal"
+                  id="save-btn"
+                  data-toggle="modal"
+                >
+                  Save changes
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--alert-->
+        <div class="modal fade" id="alert-modal">
+          <div class="modal-dialog">
+            <div class="modal-content" id="alert" data-dismiss="modal">
+              <div class="modal-body text-white">
+                <h4>Alert!</h4>
+                <span id="alert-message"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr />
+
+      <!--Github Users-->
+      <div class="col-12 my-5 p-0" id="github-users">
+        <!--HEADER-->
+        <div class="col-12 text-white bg-primary pb-5">
+          <span
+            id="info"
+            tabindex="0"
+            class="github-info fa fa-info-circle fa-lg text-info p-3 float-right"
+            data-toggle="popover"
+            data-trigger="focus"
+            title="Api request Limit"
+          ></span>
+          <p class="display-4 text-center mb-4 pt-5">
+            <span class="fa fa-github fa-1x"></span> Github Users
+          </p>
+          <div class="col-md-5 mx-auto" id="search-form">
+            <div class="input-group">
+              <!--search-->
+              <input
+                type="text"
+                class="form-control"
+                id="search"
+                placeholder="Search by username"
+              />
+              <div class="input-group-prepand">
+                <button
+                  type="button"
+                  class="btn btn-success"
+                  id="search-btn"
+                  data-toggle="modal"
+                >
+                  <span class="fa fa-search fa-lg text-white"></span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--GITHUB BODY-->
+        <div class="col-12 d-flex flex-column" id="git-body">
+          <div class="m-auto text-muted">
+            <span class="fa fa-search mr-1"></span>No results found
+          </div>
+        </div>
+
+        <!--GITHUB FOOTER-->
+        <div class="bg-light text-primary" id="footer">
+          <p class="p-4 text-center">
+            <span class="fa fa-copyright fa-lg mr-2"></span>GitHub API
+          </p>
+        </div>
+      </div>
+
+      <hr />
+
+      <!--Speech Recognition API-->
+      <div class="col p-0" id="speech-recognition">
+        <div class="jumbotron mb-0">
+          <div class="col-12 d-flex mb-2 p-0 text-primary">
+            <h3 id="display-district">
+              <span class="fa fa-microphone lg"></span> Speech Recognition!
+            </h3>
+            <div class="col d-flex">
+              <span
+                tabindex="0"
+                id="info"
+                class="fa fa-info-circle fa-lg text-info p-3 ml-auto"
+                data-toggle="popover"
+                data-trigger="focus"
+                title="speech-recognition"
+                data-content="Operate the webpage as you like by enableing it..."
+              ></span>
+            </div>
+          </div>
+          <p class="lead">
+            With the Web Speech API, we can recognize speech using JavaScript.
+            It is super easy to recognize speech in a browser using JavaScript
+            and then getting the text from the speech to use as user input.This
+            makes browsing even easier without the mouse.
+          </p>
+          <hr class="my-4" />
+          <!--Collapse content-->
+          <div id="accordion">
+            <div class="card">
+              <div class="card-header" id="headingOne">
+                <h5 class="mb-0">
+                  <button
+                    class="btn btn-link"
+                    data-toggle="collapse"
+                    data-target="#collapseOne"
+                    aria-controls="collapseOne"
+                  >
+                    Microphone
+                  </button>
+                </h5>
+              </div>
+              <div
+                id="collapseOne"
+                class="collapse show"
+                aria-labelledby="headingOne"
+                data-parent="#accordion"
+              >
+                <div class="card-body">
+                  <ul class="list-group text-primary">
+                    <li class="list-group-item">
+                      <strong>Turn on</strong> the microphone by clicking on the
+                      below mic symbol.
+                    </li>
+                    <li class="list-group-item">
+                      <strong>Turn off</strong> - once you turned on you can
+                      disable it by saying <em>"Disable microphone"</em>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header" id="headingTwo">
+                <h5 class="mb-0">
+                  <button
+                    class="btn btn-link collapsed"
+                    data-toggle="collapse"
+                    data-target="#collapseTwo"
+                    aria-expanded="false"
+                    aria-controls="collapseTwo"
+                  >
+                    Scroll
+                  </button>
+                </h5>
+              </div>
+              <div
+                id="collapseTwo"
+                class="collapse"
+                aria-labelledby="headingTwo"
+                data-parent="#accordion"
+              >
+                <div class="card-body">
+                  <ul class="list-group">
+                    <li class="list-group-item"><strong> <em>Scroll + </em> TOP</strong></li>
+                    <li class="list-group-item"><strong><em>Scroll + </em>BOTTOM</strong></li>
+                    <li class="list-group-item"><strong><em>Scroll + </em>UP</strong></li>
+                    <li class="list-group-item"><strong><em>Scroll + </em>DOWN</strong></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header" id="headingThree">
+                <h5 class="mb-0">
+                  <button
+                    class="btn btn-link collapsed"
+                    data-toggle="collapse"
+                    data-target="#collapseThree"
+                    aria-expanded="false"
+                    aria-controls="collapseThree"
+                  >
+                    Buttons and Select input
+                  </button>
+                </h5>
+              </div>
+              <div
+                id="collapseThree"
+                class="collapse"
+                aria-labelledby="headingThree"
+                data-parent="#accordion"
+              >
+                <div class="card-body">
+                  <li class="list-group-item"><strong> <em>say {Button name}</em> <em> (say dark mode)</em>  </strong></li>
+                  <li class="list-group-item"><strong>Select + <em>{input name}</strong></em> </li>
+                </div>
+              </div>
+            </div>
+
+          </div>
+            <div class="card">
+              <div class="card-header" id="headingFour">
+                <h5 class="mb-0">
+                  <button
+                    class="btn btn-link collapsed"
+                    data-toggle="collapse"
+                    data-target="#collapseFour"
+                    aria-expanded="false"
+                    aria-controls="collapseFour"
+                  >
+                    GO TO
+                  </button>
+                </h5>
+              </div>
+              <div
+                id="collapseFour"
+                class="collapse"
+                aria-labelledby="headingFour"
+                data-parent="#accordion"
+              >
+                <div class="card-body">
+                  <li class="list-group-item"><strong> <em>Go To + </em> COVID</strong></li>
+                  <li class="list-group-item"><strong><em>Go To + </em>GITHUB</strong></li>
+                  <li class="list-group-item"><strong><em>Go To + </em>speech-recognition</strong></li>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <p class="lead d-flex flex-column mt-4 mb-0">
+            <!--Microphone button-->
+            <a
+              class="btn btn-outline-danger btn-lg rounded-circle mx-auto mt-3"
+              href="javascript:;"
+              role="button"
+              id="mic"
+              ><span class="fa fa-microphone"></span
+            ></a>
+            <span id="mic-state" class="text-muted mx-auto"
+              >Microphone off</span
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!--FOOTER-->
+    <footer class="navbar bg-primary navbar-primary d-flex flex-column">
+      <ul
+        class="navbar-nav col-6 mx-auto d-flex flex-row justify-content-around"
+      >
+        <li class="nav-item">
+          <a href="javascript:;" class="nav-link">
+            <span class="fa fa-facebook-official fa-lg"></span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="javascript:;" class="nav-link">
+            <span class="fa fa-google fa-lg"></span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="javascript:;" class="nav-link">
+            <span class="fa fa-linkedin fa-lg"></span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="javascript:;" class="nav-link">
+            <span class="fa fa-linux fa-lg"></span>
+          </a>
+        </li>
+      </ul>
+
+      <div id="for" class="text-center text-secondary">
+        <p class="mx-auto m-0 mt-4">Mini-Project</p>
+        <p class="mx-auto m-0 mt-2">
+          Sathayabama University- <em>Chennai</em>
+        </p>
+      </div>
+    </footer>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+    <!--chart.j CDN-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+    <!--custom javascript-->
+    <script src="js/covid.js"></script>
+    <script src="js/github.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/speech.js"></script>
+    <script src="js/localstorage.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,48 @@
+#btntop {
+  display: none;
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  z-index: 2;
+}
+.covid:hover,
+.list-group-item:hover {
+  transform: scale(1);
+  transition: 0.5s;
+  box-shadow: 0px 0px 5px 2px gray;
+  background-color: rgb(19, 45, 59);
+  color: white;
+}
+
+#git-body {
+  min-height: 400.97px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+#info {
+  cursor: pointer;
+}
+
+#main-container {
+  box-shadow: 0px 0px 20px gray;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.nav-item {
+  padding: 7px;
+}
+
+.norepos:hover .repospill {
+  background-color: white;
+  color: rgb(19, 45, 59);
+}
+
+.toast {
+  position: fixed;
+  bottom: 0px;
+  left: 10px;
+  z-index: 2;
+}
