@@ -18,7 +18,7 @@ class Covid {
     };
 
     const dataResponse = await fetch(
-      "https://api.covid19india.org/state_district_wise.json",
+      "https://data.covid19india.org/state_district_wise.json",
       requestOptions,
       true
     );
